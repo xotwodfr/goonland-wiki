@@ -1,16 +1,27 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>History of Sigeonssenpexia - Goonland Wiki</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
             background: #f8f9fa;
             color: #202122;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, Helvetica, Arial, sans-serif;
             font-size: 14px;
             line-height: 1.6;
         }
@@ -25,96 +36,135 @@
         }
 
         .topbar {
-            height: 50px;
-            background: white;
-            border-bottom: 1px solid #a2a9b1;
+            height: 60px;
+            background: #fff;
+            border-bottom: 1px solid #c8ccd1;
             display: flex;
             align-items: center;
-            padding: 0 30px;
-            box-sizing: border-box;
+            padding: 0 32px;
         }
 
-        .logo {
+        .wiki-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 210px;
+        }
+
+        .wiki-symbol {
+            width: 38px;
+            height: 38px;
+            border: 2px solid #202122;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-family: Georgia, serif;
-            font-size: 22px;
-            font-weight: bold;
-            margin-right: 30px;
+            font-size: 20px;
         }
 
-        .logo span {
-            font-weight: normal;
-            color: #72777d;
+        .wiki-name {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 21px;
+        }
+
+        .wiki-name small {
+            display: block;
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            color: #54595d;
+            letter-spacing: 1px;
         }
 
         .search {
-            width: 280px;
-            height: 30px;
+            width: 320px;
+            height: 34px;
             border: 1px solid #a2a9b1;
-            padding: 0 10px;
-            box-sizing: border-box;
+            padding: 0 12px;
+            font-size: 14px;
+            background: #fff;
         }
 
         .page {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            background: white;
-            min-height: calc(100vh - 50px);
-            padding: 30px 40px 60px;
-            box-sizing: border-box;
+            background: #fff;
+            min-height: calc(100vh - 60px);
+            padding: 24px 45px 60px;
         }
 
-        .title {
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 32px;
-            font-weight: normal;
+        .article-header {
             border-bottom: 1px solid #a2a9b1;
-            margin: 0 0 5px;
-            padding-bottom: 5px;
+            margin-bottom: 8px;
         }
 
-        .subtitle {
+        .article-header h1 {
+            margin: 0;
+            font-family: Georgia, "Times New Roman", serif;
+            font-weight: normal;
+            font-size: 32px;
+            line-height: 1.3;
+        }
+
+        .article-subtitle {
             color: #54595d;
             font-size: 13px;
-            margin-bottom: 20px;
+            margin: 7px 0 10px;
         }
 
-        .layout {
-            display: flex;
-            gap: 30px;
+        .article-tools {
+            color: #54595d;
+            font-size: 12px;
+            margin-bottom: 15px;
         }
 
-        .article {
-            flex: 1;
-            min-width: 0;
+        .content {
+            max-width: 1120px;
         }
 
         .infobox {
+            float: right;
             width: 300px;
-            flex-shrink: 0;
+            margin: 0 0 20px 25px;
             border: 1px solid #a2a9b1;
             background: #f8f9fa;
             font-size: 13px;
-            margin-bottom: 20px;
         }
 
         .infobox-title {
             background: #eaecf0;
             text-align: center;
+            font-size: 19px;
             font-weight: bold;
-            font-size: 18px;
             padding: 8px;
         }
 
+        .infobox-subtitle {
+            text-align: center;
+            font-style: italic;
+            padding: 4px 8px 8px;
+        }
+
         .infobox-image {
-            width: 100%;
             height: 180px;
-            background: #d6d9dc;
+            margin: 0 8px 8px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #d6d9dc 25%,
+                    #eaecf0 25%,
+                    #eaecf0 50%,
+                    #d6d9dc 50%,
+                    #d6d9dc 75%,
+                    #eaecf0 75%
+                );
+            background-size: 24px 24px;
             display: flex;
             align-items: center;
             justify-content: center;
+            text-align: center;
             color: #54595d;
             font-size: 12px;
-            text-align: center;
         }
 
         .infobox table {
@@ -125,7 +175,7 @@
         .infobox th,
         .infobox td {
             border-top: 1px solid #c8ccd1;
-            padding: 7px;
+            padding: 6px 8px;
             vertical-align: top;
         }
 
@@ -135,37 +185,23 @@
             background: #eaecf0;
         }
 
-        h2 {
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 24px;
-            font-weight: normal;
-            border-bottom: 1px solid #a2a9b1;
-            padding-bottom: 3px;
-            margin-top: 28px;
-        }
-
-        h3 {
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 19px;
-            font-weight: normal;
-            margin-top: 22px;
-        }
-
-        p {
-            margin: 10px 0;
+        .lead {
+            font-size: 14px;
         }
 
         .toc {
-            display: inline-block;
+            display: table;
             border: 1px solid #a2a9b1;
             background: #f8f9fa;
-            padding: 10px 25px 12px 15px;
-            margin: 15px 0 10px;
+            padding: 10px 18px 12px;
+            margin: 18px 0 25px;
+            min-width: 280px;
         }
 
         .toc-title {
-            font-weight: bold;
             text-align: center;
+            font-weight: bold;
+            font-size: 15px;
             margin-bottom: 5px;
         }
 
@@ -178,20 +214,60 @@
             margin: 2px 0;
         }
 
-        .notice {
-            border: 1px solid #a2a9b1;
-            background: #f8f9fa;
-            padding: 10px 15px;
-            margin: 15px 0;
-            font-size: 13px;
+        .toc ol ol {
+            margin-top: 2px;
+        }
+
+        h2 {
+            clear: none;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 24px;
+            font-weight: normal;
+            border-bottom: 1px solid #a2a9b1;
+            margin: 30px 0 10px;
+            padding-bottom: 3px;
+        }
+
+        h3 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 19px;
+            font-weight: normal;
+            margin: 24px 0 8px;
+        }
+
+        p {
+            margin: 10px 0;
         }
 
         .quote {
             border-left: 3px solid #a2a9b1;
-            padding-left: 15px;
-            margin: 15px 25px;
+            margin: 18px 35px;
+            padding: 5px 15px;
             color: #54595d;
             font-style: italic;
+        }
+
+        .hatnote {
+            font-style: italic;
+            color: #54595d;
+            margin-bottom: 15px;
+        }
+
+        .timeline {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 15px 0 20px;
+        }
+
+        .timeline th,
+        .timeline td {
+            border: 1px solid #a2a9b1;
+            padding: 7px 9px;
+            text-align: left;
+        }
+
+        .timeline th {
+            background: #eaecf0;
         }
 
         .references {
@@ -202,31 +278,49 @@
             padding-left: 30px;
         }
 
+        .categories {
+            border-top: 1px solid #a2a9b1;
+            margin-top: 35px;
+            padding: 10px 0;
+            font-size: 13px;
+        }
+
         .footer {
             border-top: 1px solid #a2a9b1;
-            margin-top: 40px;
+            margin-top: 25px;
             padding-top: 15px;
             color: #54595d;
             font-size: 12px;
         }
 
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
         @media (max-width: 800px) {
-            .page {
-                padding: 20px;
+            .topbar {
+                padding: 0 15px;
             }
 
-            .layout {
-                display: block;
-            }
-
-            .infobox {
-                width: 100%;
-                max-width: 400px;
-                margin: 0 auto 20px;
+            .wiki-logo {
+                min-width: 0;
             }
 
             .search {
                 display: none;
+            }
+
+            .page {
+                padding: 20px;
+            }
+
+            .infobox {
+                float: none;
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto 20px;
             }
         }
     </style>
@@ -235,435 +329,847 @@
 <body>
 
 <header class="topbar">
-    <div class="logo">
-        Goonland <span>Wiki</span>
+    <div class="wiki-logo">
+        <div class="wiki-symbol">G</div>
+
+        <div class="wiki-name">
+            Goonland Wiki
+            <small>THE FREE ENCYCLOPEDIA</small>
+        </div>
     </div>
 
     <input
         class="search"
-        type="text"
+        type="search"
         placeholder="Search Goonland Wiki"
+        aria-label="Search Goonland Wiki"
     >
 </header>
 
 <main class="page">
 
-    <h1 class="title">History of Sigeonssenpexia</h1>
+    <div class="article-header">
+        <h1>History of Sigeonssenpexia</h1>
 
-    <div class="subtitle">
-        From Goonland Wiki, the free encyclopedia of Goonland and its territories
+        <div class="article-subtitle">
+            History of the former country and its successor states
+        </div>
+
+        <div class="article-tools">
+            Article &nbsp; | &nbsp; Discussion &nbsp; | &nbsp; Read &nbsp; | &nbsp; Edit
+        </div>
     </div>
 
-    <div class="layout">
+    <div class="content clearfix">
 
-        <article class="article">
+        <aside class="infobox">
 
-            <div class="notice">
-                This article covers the history of Sigeonssenpexia and the
-                partition that created the modern states of Goonland and Sentexland.
+            <div class="infobox-title">
+                Sigeonssenpexia
             </div>
 
-            <div class="toc">
-                <div class="toc-title">Contents</div>
-
-                <ol>
-                    <li><a href="#early-history">Early history</a></li>
-                    <li><a href="#political-tensions">Political tensions</a></li>
-                    <li><a href="#partition">The Partition</a></li>
-                    <li><a href="#goonland">Goonland</a></li>
-                    <li><a href="#sentexland">Sentexland</a></li>
-                    <li><a href="#mango-dispute">The Mango Dispute</a></li>
-                    <li><a href="#goonkrieg">The Goonkrieg</a></li>
-                    <li><a href="#peace">Peace</a></li>
-                    <li><a href="#legacy">Legacy</a></li>
-                    <li><a href="#references">References</a></li>
-                </ol>
+            <div class="infobox-subtitle">
+                Former country
             </div>
 
-            <p>
-                <strong>Sigeonssenpexia</strong> was an ancient country inhabited
-                primarily by three major groups, the
-                <a href="#">Sigeons</a>, the <a href="#">Sennises</a>, and the
-                <a href="#">Pexes</a>. It existed as a unified state for centuries
-                before political disagreements eventually caused its collapse.
-            </p>
-
-            <p>
-                The division of Sigeonssenpexia created the modern countries of
-                <a href="#goonland">Goonland</a> and
-                <a href="#sentexland">Sentexland</a> and laid the foundation for
-                the later <a href="#goonkrieg">Goonkrieg</a>.
-            </p>
-
-            <h2 id="early-history">Early history</h2>
-
-            <p>
-                Sigeonssenpexia occupied a large territory that eventually became
-                modern-day Goonland and Sentexland.
-            </p>
-
-            <p>
-                The country had three major populations.
-            </p>
-
-            <p>
-                The Sigeons lived primarily in the western regions. They were
-                known for their social culture, large gatherings, music, and
-                relatively relaxed approach to government.
-            </p>
-
-            <p>
-                The Sennises lived primarily in the eastern regions. Their society
-                placed greater importance on organization, military strength, and
-                centralized government.
-            </p>
-
-            <p>
-                The Pexes lived throughout the country and became heavily involved
-                in trade and politics.
-            </p>
-
-            <p>
-                Despite their differences, the three groups lived together under
-                a single government for centuries.
-            </p>
-
-            <p>
-                The country became an important center of trade, with mangoes
-                becoming one of its most valuable commodities.
-            </p>
-
-            <h2 id="political-tensions">Political tensions</h2>
-
-            <p>
-                Relations between the three groups began deteriorating during the
-                final decades of Sigeonssenpexia.
-            </p>
-
-            <p>
-                The Sigeons and Sennises increasingly disagreed over taxation,
-                military spending, trade regulations, and control over mango
-                production.
-            </p>
-
-            <p>
-                The Pexes attempted to mediate between the two sides, but their
-                efforts failed to stop the growing political divide.
-            </p>
-
-            <p>
-                By 2021, the central government had lost control over several
-                regions. The western and eastern governments began operating
-                independently.
-            </p>
-
-            <p>
-                Sigeonssenpexia was effectively divided before the split became
-                official.
-            </p>
-
-            <h2 id="partition">The Partition</h2>
-
-            <p>
-                In 2022, representatives from the Sigeons and Sennises met to
-                negotiate the future of the country.
-            </p>
-
-            <p>
-                The negotiations lasted several months. The two sides eventually
-                agreed to divide Sigeonssenpexia into two independent states.
-            </p>
-
-            <p>
-                The western territory became <strong>Goonland</strong>, controlled
-                primarily by the Sigeons.
-            </p>
-
-            <p>
-                The eastern territory became <strong>Sentexland</strong>, controlled
-                primarily by the Sennises.
-            </p>
-
-            <p>
-                The Pex population was divided between the two countries.
-            </p>
-
-            <p>
-                The partition was intended to prevent a civil war. Instead, it
-                created a heavily disputed border.
-            </p>
-
-            <h2 id="goonland">Goonland</h2>
-
-            <p>
-                Goonland became the western successor state of Sigeonssenpexia.
-            </p>
-
-            <p>
-                The Sigeons established their capital in
-                <a href="#">Goon Central</a>.
-            </p>
-
-            <p>
-                The new government adopted a decentralized political system and
-                allowed local communities significant independence.
-            </p>
-
-            <p>
-                Goonland quickly developed a reputation for nightlife, music,
-                large gatherings, and an unusually relaxed attitude toward public
-                regulations.
-            </p>
-
-            <p>
-                The country also became one of the world's largest consumers of
-                mangoes.
-            </p>
-
-            <h2 id="sentexland">Sentexland</h2>
-
-            <p>
-                Sentexland became the eastern successor state.
-            </p>
-
-            <p>
-                The Sennises established a centralized government and invested
-                heavily in border defenses.
-            </p>
-
-            <p>
-                The Sentex government viewed Goonland as politically unstable and
-                feared that the Sigeons would eventually attempt to reclaim
-                eastern territory.
-            </p>
-
-            <p>
-                Relations between the two countries deteriorated rapidly.
-            </p>
-
-            <h2 id="mango-dispute">The Mango Dispute</h2>
-
-            <p>
-                The final major dispute between Goonland and Sentexland concerned
-                a shipment of <strong>67 mangoes</strong>.
-            </p>
-
-            <p>
-                The shipment was transported toward Goonland shortly after the
-                partition. It disappeared near the border.
-            </p>
-
-            <p>
-                Sentexland accused Goonland of stealing the mangoes.
-                Goonland denied the accusation.
-            </p>
-
-            <div class="quote">
-                "The mangoes were never stolen. They were relocated."
-                <br>
-                — Goonland diplomatic statement, 2022
+            <div class="infobox-image">
+                Historical map of<br>
+                Sigeonssenpexia<br>
+                <small>[map image]</small>
             </div>
 
-            <p>
-                The dispute became increasingly hostile.
-                Negotiations failed, the border was closed, and military forces
-                from both countries began mobilizing.
-            </p>
+            <table>
 
-            <h2 id="goonkrieg">The Goonkrieg</h2>
+                <tr>
+                    <th>Official name</th>
+                    <td>Sigeonssenpexia</td>
+                </tr>
 
-            <p>
-                On 14 June 2022, Sentexland forces crossed into Goonland.
-                The <strong>Goonkrieg</strong> began.
-            </p>
+                <tr>
+                    <th>Type</th>
+                    <td>Former country</td>
+                </tr>
 
-            <p>
-                The war was fought primarily between the
-                <a href="#">Sigeongoons</a> of Goonland and the
-                <a href="#">Sennisgoons</a> of Sentexland.
-            </p>
+                <tr>
+                    <th>Established</th>
+                    <td>Ancient period</td>
+                </tr>
 
-            <p>
-                The conflict lasted until 2025 and became the largest war in the
-                history of the two countries.
-            </p>
+                <tr>
+                    <th>Dissolved</th>
+                    <td>2022</td>
+                </tr>
 
-            <h3>The Battle of Rooftop 67</h3>
+                <tr>
+                    <th>Major groups</th>
+                    <td>
+                        Sigeons<br>
+                        Sennises<br>
+                        Pexes
+                    </td>
+                </tr>
 
-            <p>
-                The most famous engagement was the
-                <a href="#">Battle of Rooftop 67</a>, where Sigeongoons forces
-                successfully defended a major mango storage facility.
-            </p>
+                <tr>
+                    <th>Western successor</th>
+                    <td><a href="#goonland">Goonland</a></td>
+                </tr>
 
-            <p>
-                The battle became a symbol of Goonland's resistance and was later
-                commemorated during the annual Mango 67 celebrations.
-            </p>
+                <tr>
+                    <th>Eastern successor</th>
+                    <td><a href="#sentexland">Sentexland</a></td>
+                </tr>
 
-            <h2 id="peace">Peace</h2>
+                <tr>
+                    <th>Major commodity</th>
+                    <td>Mangoes</td>
+                </tr>
 
-            <p>
-                After several years of fighting, both countries faced severe
-                economic problems.
-            </p>
+                <tr>
+                    <th>Notable conflict</th>
+                    <td><a href="#goonkrieg">Goonkrieg</a></td>
+                </tr>
 
-            <p>
-                Negotiations resumed in 2025.
-            </p>
-
-            <p>
-                The <strong>Treaty of Mango 67</strong> ended the Goonkrieg and
-                restored diplomatic relations between Goonland and Sentexland.
-            </p>
-
-            <p>
-                The two countries remained independent.
-            </p>
-
-            <p>
-                The original 67 mangoes were never found.
-            </p>
-
-            <h2 id="legacy">Legacy</h2>
-
-            <p>
-                The dissolution of Sigeonssenpexia remains one of the defining
-                events in the history of the region.
-            </p>
-
-            <p>
-                The country's collapse created the modern political division
-                between the Sigeons and Sennises.
-            </p>
-
-            <p>
-                The western half became Goonland.
-                The eastern half became Sentexland.
-            </p>
-
-            <p>
-                The rivalry between the two countries eventually produced the
-                Goonkrieg, while the disputed mango shipment became one of the
-                most famous political controversies in modern pigeon history.
-            </p>
-
-            <p>
-                Today, the former territory of Sigeonssenpexia is divided by the
-                Goonland-Sentexland border.
-            </p>
-
-            <p>
-                The name Sigeonssenpexia survives in historical records, old maps,
-                and arguments between historians over who was responsible for
-                losing the 67 mangoes.
-            </p>
-
-            <h2 id="references">References</h2>
-
-            <div class="references">
-                <ol>
-                    <li>
-                        <em>The Goonland Gazette</em>,
-                        "The Collapse of Sigeonssenpexia."
-                    </li>
-
-                    <li>
-                        <em>Sentex Historical Review</em>,
-                        "The Partition of 2022."
-                    </li>
-
-                    <li>
-                        <em>Mango Historical Society</em>,
-                        "The 67 Mango Dispute."
-                    </li>
-
-                    <li>
-                        <em>Goonland Military Archives</em>,
-                        "The Goonkrieg, 2022–2025."
-                    </li>
-                </ol>
-            </div>
-
-        </article>
-
-        <aside>
-
-            <div class="infobox">
-
-                <div class="infobox-title">
-                    Sigeonssenpexia
-                </div>
-
-                <div class="infobox-image">
-                    Historical map of Sigeonssenpexia<br>
-                    Image placeholder
-                </div>
-
-                <table>
-                    <tr>
-                        <th>Type</th>
-                        <td>Former country</td>
-                    </tr>
-
-                    <tr>
-                        <th>Capital</th>
-                        <td>Unknown</td>
-                    </tr>
-
-                    <tr>
-                        <th>Established</th>
-                        <td>Ancient period</td>
-                    </tr>
-
-                    <tr>
-                        <th>Dissolved</th>
-                        <td>2022</td>
-                    </tr>
-
-                    <tr>
-                        <th>Successor states</th>
-                        <td>
-                            <a href="#goonland">Goonland</a><br>
-                            <a href="#sentexland">Sentexland</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <th>Major groups</th>
-                        <td>
-                            Sigeons<br>
-                            Sennises<br>
-                            Pexes
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <th>Major commodity</th>
-                        <td>Mangoes</td>
-                    </tr>
-
-                    <tr>
-                        <th>Notable conflict</th>
-                        <td>Goonkrieg</td>
-                    </tr>
-                </table>
-
-            </div>
+            </table>
 
         </aside>
 
-    </div>
+        <div class="lead">
 
-    <footer class="footer">
-        This page is part of the Goonland Wiki, a fictional encyclopedia
-        documenting the history, geography, politics, and extremely questionable
-        decisions of Goonland and its neighboring states.
-        <br><br>
-        Last edited: 14 August 2026
-    </footer>
+            <p>
+                <strong>Sigeonssenpexia</strong> was a former country inhabited
+                primarily by three major groups, the <a href="#">Sigeons</a>,
+                the <a href="#">Sennises</a>, and the <a href="#">Pexes</a>.
+                It existed as a unified state for centuries before political
+                disagreements between the groups eventually caused its collapse.
+            </p>
+
+            <p>
+                The country was divided in 2022, creating the modern states of
+                <a href="#goonland">Goonland</a> in the west and
+                <a href="#sentexland">Sentexland</a> in the east.
+                The division eventually led to the
+                <a href="#goonkrieg">Goonkrieg</a>, one of the largest conflicts
+                in modern pigeon history.
+            </p>
+
+            <p>
+                The history of Sigeonssenpexia is also closely associated with
+                <a href="#sigeon-pex">Sigeon Pex</a>, a prominent Sigeon who
+                later became one of Goonland's most famous social figures.
+            </p>
+
+        </div>
+
+        <div class="toc">
+
+            <div class="toc-title">Contents</div>
+
+            <ol>
+                <li>
+                    <a href="#early-history">Early history</a>
+                </li>
+
+                <li>
+                    <a href="#three-groups">The three groups</a>
+                </li>
+
+                <li>
+                    <a href="#political-tensions">Political tensions</a>
+                </li>
+
+                <li>
+                    <a href="#partition">The Partition</a>
+                </li>
+
+                <li>
+                    <a href="#goonland">Goonland</a>
+                </li>
+
+                <li>
+                    <a href="#sentexland">Sentexland</a>
+                </li>
+
+                <li>
+                    <a href="#mango-dispute">The Mango Dispute</a>
+                </li>
+
+                <li>
+                    <a href="#goonkrieg">Goonkrieg</a>
+                    <ol>
+                        <li><a href="#rooftop-67">Battle of Rooftop 67</a></li>
+                        <li><a href="#goon-central">Battle of Goon Central</a></li>
+                        <li><a href="#end-war">End of the war</a></li>
+                    </ol>
+                </li>
+
+                <li>
+                    <a href="#sigeon-pex">Sigeon Pex</a>
+                    <ol>
+                        <li><a href="#pex-birth">Early life</a></li>
+                        <li><a href="#pex-homeless">Homeless period</a></li>
+                        <li><a href="#pex-rise">Rise to prominence</a></li>
+                        <li><a href="#pex-mansion">The mansion</a></li>
+                    </ol>
+                </li>
+
+                <li>
+                    <a href="#mango-67">Mango 67</a>
+                </li>
+
+                <li>
+                    <a href="#peace">Peace and aftermath</a>
+                </li>
+
+                <li>
+                    <a href="#legacy">Legacy</a>
+                </li>
+
+                <li>
+                    <a href="#timeline">Timeline</a>
+                </li>
+
+                <li>
+                    <a href="#references">References</a>
+                </li>
+            </ol>
+
+        </div>
+
+        <h2 id="early-history">Early history</h2>
+
+        <p>
+            Sigeonssenpexia occupied the territory that would later become
+            Goonland and Sentexland. The country's exact date of establishment
+            is unknown, with surviving historical records suggesting that it
+            existed for several centuries.
+        </p>
+
+        <p>
+            The country developed into a major center of trade. Its location
+            allowed merchants to travel between the western and eastern
+            regions, while mangoes became one of its most important commodities.
+        </p>
+
+        <p>
+            For much of its history, Sigeonssenpexia remained politically
+            unified despite significant cultural differences between its
+            populations.
+        </p>
+
+        <h2 id="three-groups">The three groups</h2>
+
+        <h3>The Sigeons</h3>
+
+        <p>
+            The <strong>Sigeons</strong> primarily inhabited the western
+            regions of Sigeonssenpexia. Their society was known for large
+            gatherings, music, social events, and a relatively relaxed approach
+            to government.
+        </p>
+
+        <p>
+            The Sigeons later became the dominant population of Goonland.
+        </p>
+
+        <h3>The Sennises</h3>
+
+        <p>
+            The <strong>Sennises</strong> primarily inhabited the eastern
+            regions. Their society placed greater importance on centralized
+            government, organization, military strength, and regulation of
+            trade.
+        </p>
+
+        <p>
+            The Sennises later became the dominant population of Sentexland.
+        </p>
+
+        <h3>The Pexes</h3>
+
+        <p>
+            The <strong>Pexes</strong> lived throughout Sigeonssenpexia and
+            became heavily involved in trade and politics.
+        </p>
+
+        <p>
+            The Pexes frequently acted as intermediaries between the Sigeons
+            and Sennises.
+        </p>
+
+        <h2 id="political-tensions">Political tensions</h2>
+
+        <p>
+            Relations between the three groups deteriorated during the final
+            decades of Sigeonssenpexia.
+        </p>
+
+        <p>
+            The Sigeons and Sennises increasingly disagreed over taxation,
+            military spending, trade regulations, territorial administration,
+            and control over mango production.
+        </p>
+
+        <p>
+            The Pexes attempted to mediate between the two sides, but their
+            efforts failed to prevent the political divide from widening.
+        </p>
+
+        <p>
+            By 2021, the central government had lost effective control over
+            several regions. Western and eastern authorities began operating
+            independently.
+        </p>
+
+        <p>
+            Sigeonssenpexia was effectively divided before the formal
+            partition took place.
+        </p>
+
+        <h2 id="partition">The Partition</h2>
+
+        <p>
+            In 2022, representatives of the Sigeons and Sennises began
+            negotiations over the future of Sigeonssenpexia.
+        </p>
+
+        <p>
+            The negotiations lasted several months. Both sides eventually
+            agreed to divide the country into two independent states.
+        </p>
+
+        <p>
+            The western territory became <strong>Goonland</strong>, controlled
+            primarily by the Sigeons.
+        </p>
+
+        <p>
+            The eastern territory became <strong>Sentexland</strong>, controlled
+            primarily by the Sennises.
+        </p>
+
+        <p>
+            The Pex population was divided between the two new countries.
+        </p>
+
+        <p>
+            The partition was intended to prevent a civil war. Instead, the
+            newly established border became the source of further disputes.
+        </p>
+
+        <h2 id="goonland">Goonland</h2>
+
+        <p>
+            <strong>Goonland</strong> became the western successor state of
+            Sigeonssenpexia.
+        </p>
+
+        <p>
+            The Sigeons established their political center in
+            <a href="#">Goon Central</a>.
+        </p>
+
+        <p>
+            The new government adopted a relatively decentralized political
+            system and allowed local communities considerable independence.
+        </p>
+
+        <p>
+            Goonland quickly became known for nightlife, music, rooftop
+            gatherings, and large social events.
+        </p>
+
+        <p>
+            Mangoes became an important part of Goonland's culture and economy.
+        </p>
+
+        <h2 id="sentexland">Sentexland</h2>
+
+        <p>
+            <strong>Sentexland</strong> became the eastern successor state of
+            Sigeonssenpexia.
+        </p>
+
+        <p>
+            The Sennises established a centralized government and invested
+            heavily in border defenses.
+        </p>
+
+        <p>
+            The Sentex government viewed Goonland as politically unstable and
+            feared that the Sigeons would eventually attempt to reclaim eastern
+            territory.
+        </p>
+
+        <p>
+            Diplomatic relations between the two countries deteriorated rapidly.
+        </p>
+
+        <h2 id="mango-dispute">The Mango Dispute</h2>
+
+        <p>
+            The final major dispute before the Goonkrieg concerned a shipment
+            of <strong>67 mangoes</strong>.
+        </p>
+
+        <p>
+            The shipment was transported toward Goonland shortly after the
+            partition. It disappeared near the border.
+        </p>
+
+        <p>
+            Sentexland accused Goonland of stealing the mangoes. Goonland
+            denied the accusation.
+        </p>
+
+        <div class="quote">
+            "The mangoes were never stolen. They were relocated."
+            <br>
+            — Goonland diplomatic statement, 2022
+        </div>
+
+        <p>
+            The dispute escalated rapidly. Negotiations failed, the border was
+            closed, and military forces from both countries began mobilizing.
+        </p>
+
+        <h2 id="goonkrieg">Goonkrieg</h2>
+
+        <p>
+            On 14 June 2022, Sentexland forces crossed into Goonland.
+            The <strong>Goonkrieg</strong> began.
+        </p>
+
+        <p>
+            The war was fought primarily between the
+            <strong>Sigeongoons</strong> of Goonland and the
+            <strong>Sennisgoons</strong> of Sentexland.
+        </p>
+
+        <p>
+            The conflict continued until 2025 and became the largest war in
+            the modern history of the two countries.
+        </p>
+
+        <h3 id="rooftop-67">Battle of Rooftop 67</h3>
+
+        <p>
+            The <strong>Battle of Rooftop 67</strong> became the most famous
+            engagement of the Goonkrieg.
+        </p>
+
+        <p>
+            Rooftop 67 overlooked central Goonland and contained a major mango
+            storage facility. Sennisgoon forces attempted to capture the
+            location, while Sigeongoons forces mounted a determined defense.
+        </p>
+
+        <p>
+            The battle lasted approximately nine hours. The Sigeongoons
+            eventually launched a counterattack and forced the Sennisgoons
+            from the rooftop.
+        </p>
+
+        <p>
+            The victory became a symbol of Goonland's resistance and later
+            inspired the name of the Mango 67 celebrations.
+        </p>
+
+        <h3 id="goon-central">Battle of Goon Central</h3>
+
+        <p>
+            In 2024, Sentexland launched its largest offensive of the war.
+            Its objective was Goon Central, the largest city in Goonland.
+        </p>
+
+        <p>
+            The fighting centered around Goonland Station. The battle lasted
+            throughout the day and involved thousands of pigeons.
+        </p>
+
+        <p>
+            Sigeongoons forces eventually received reinforcements and pushed
+            the Sennisgoons out of the city.
+        </p>
+
+        <p>
+            The defeat became a major turning point in the war.
+        </p>
+
+        <h3 id="end-war">End of the war</h3>
+
+        <p>
+            By early 2025, Sentexland was suffering from severe economic
+            problems and declining morale.
+        </p>
+
+        <p>
+            Sigeongoons forces advanced toward the Sentex capital. Sennis
+            eventually agreed to negotiate.
+        </p>
+
+        <p>
+            The war ended later in 2025 with the signing of the
+            <strong>Treaty of Mango 67</strong>.
+        </p>
+
+        <h2 id="sigeon-pex">Sigeon Pex</h2>
+
+        <p>
+            <strong>Sigeon Pex</strong> is a prominent Sigeon figure known for
+            his rise from homelessness to becoming one of Goonland's wealthiest
+            and most recognizable social figures.
+        </p>
+
+        <p>
+            He is particularly known for hosting the
+            <a href="#mango-67">Mango 67 parties</a> at his mansion in Goonland.
+        </p>
+
+        <h3 id="pex-birth">Early life</h3>
+
+        <p>
+            Sigeon Pex was born in a small, overcrowded pigeon nest on the
+            outskirts of Goonland.
+        </p>
+
+        <p>
+            His childhood was reportedly difficult. His parents considered
+            him an embarrassment to the family because of his unusual
+            personality, questionable decision-making, and habit of collecting
+            discarded mango peels.
+        </p>
+
+        <p>
+            At the age of seven pigeon years, Sigeon was kicked out of the
+            family nest.
+        </p>
+
+        <p>
+            Following his expulsion, Sigeon had no permanent home and was
+            forced to survive on the streets of Goonland.
+        </p>
+
+        <h3 id="pex-homeless">Homeless period</h3>
+
+        <p>
+            During his homeless period, Sigeon slept underneath benches,
+            abandoned rooftops, and occasionally inside a broken shopping
+            cart.
+        </p>
+
+        <p>
+            He survived primarily on crumbs, discarded fries, and whatever
+            mango-related food he found around Goonland.
+        </p>
+
+        <p>
+            Despite his circumstances, Sigeon remained determined to improve
+            his life.
+        </p>
+
+        <p>
+            His time without a home later became an important part of his
+            public image. After becoming wealthy, he reportedly kept the
+            original broken shopping cart from his homeless period inside
+            his mansion.
+        </p>
+
+        <h3 id="pex-rise">Rise to prominence</h3>
+
+        <p>
+            Sigeon's fortunes began to change after he befriended several
+            pigeons near Goonland Central Station.
+        </p>
+
+        <p>
+            Among his earliest known friends were
+            <strong>Gregor the Pigeon</strong>, known for wearing a tiny red
+            hat, and <strong>Pexington</strong>, a pigeon who claimed to have
+            "connections everywhere."
+        </p>
+
+        <p>
+            The group explored different parts of Goonland together. Sigeon
+            gradually gained a reputation for being unusually friendly and
+            for somehow obtaining large quantities of mangoes.
+        </p>
+
+        <p>
+            His growing social circle led to invitations to increasingly
+            exclusive gatherings.
+        </p>
+
+        <p>
+            Sigeon became known for organizing events with loud music,
+            enormous quantities of mangoes, and little regard for noise
+            regulations.
+        </p>
+
+        <p>
+            His popularity increased steadily.
+        </p>
+
+        <h3 id="pex-mansion">The mansion</h3>
+
+        <p>
+            Following the success of his events, Sigeon accumulated
+            considerable wealth.
+        </p>
+
+        <p>
+            He eventually purchased a large mansion overlooking Goonland.
+            The property contains several bedrooms, a rooftop terrace, a
+            swimming pool, a large mango storage room, and a dedicated
+            party hall.
+        </p>
+
+        <p>
+            The mansion became the unofficial headquarters of the
+            <strong>Mango 67</strong> movement.
+        </p>
+
+        <p>
+            Sigeon reportedly kept the broken shopping cart from his homeless
+            years inside the mansion as a reminder of his earlier life.
+        </p>
+
+        <h2 id="mango-67">Mango 67</h2>
+
+        <p>
+            In 2024, Sigeon Pex hosted the first major
+            <strong>Mango 67</strong> party at an abandoned warehouse in
+            central Goonland.
+        </p>
+
+        <p>
+            The event was initially expected to attract around 20 pigeons.
+            More than 300 reportedly attended.
+        </p>
+
+        <p>
+            The exact meaning of the number 67 remains disputed. Some accounts
+            claim it refers to the original number of mangoes purchased for
+            the first party. Other accounts state that Sigeon chose the
+            number because he thought it sounded good.
+        </p>
+
+        <p>
+            The parties eventually became a major part of Goonland's nightlife.
+        </p>
+
+        <p>
+            Typical Mango 67 parties feature hundreds of pigeons, large
+            quantities of mangoes, loud music, rooftop dancing, and at least
+            one pigeon getting stuck inside a ventilation system.
+        </p>
+
+        <p>
+            Sigeon remains the permanent host and is known for personally
+            welcoming guests at the entrance.
+        </p>
+
+        <h2 id="peace">Peace and aftermath</h2>
+
+        <p>
+            Following several years of fighting, both Goonland and Sentexland
+            faced severe economic problems.
+        </p>
+
+        <p>
+            Negotiations resumed in 2025.
+        </p>
+
+        <p>
+            The Treaty of Mango 67 restored diplomatic relations between
+            Goonland and Sentexland.
+        </p>
+
+        <p>
+            Both countries remained independent.
+        </p>
+
+        <p>
+            The original 67 mangoes were never recovered.
+        </p>
+
+        <p>
+            Former Sigeongoons and Sennisgoons eventually began attending the
+            same social events. Mango 67 parties became an unofficial symbol
+            of reconciliation between the two populations.
+        </p>
+
+        <h2 id="legacy">Legacy</h2>
+
+        <p>
+            The dissolution of Sigeonssenpexia remains one of the defining
+            events in the history of the region.
+        </p>
+
+        <p>
+            Its collapse created the modern political division between the
+            Sigeons and Sennises.
+        </p>
+
+        <p>
+            The western half became Goonland.
+            The eastern half became Sentexland.
+        </p>
+
+        <p>
+            The rivalry between the two countries eventually produced the
+            Goonkrieg, while the disputed shipment of 67 mangoes became one
+            of the most famous political controversies in modern pigeon
+            history.
+        </p>
+
+        <p>
+            Sigeon Pex's life also became a major part of modern Goonland
+            culture. His rise from homelessness to wealth and his role as
+            host of Mango 67 became one of the most widely known success
+            stories in Goonland.
+        </p>
+
+        <h2 id="timeline">Timeline</h2>
+
+        <table class="timeline">
+
+            <tr>
+                <th>Date</th>
+                <th>Event</th>
+            </tr>
+
+            <tr>
+                <td>Ancient period</td>
+                <td>Sigeonssenpexia is established.</td>
+            </tr>
+
+            <tr>
+                <td>Before 2021</td>
+                <td>
+                    Sigeons, Sennises, and Pexes coexist within the country.
+                </td>
+            </tr>
+
+            <tr>
+                <td>2021</td>
+                <td>
+                    Central government authority begins to collapse.
+                </td>
+            </tr>
+
+            <tr>
+                <td>2022</td>
+                <td>
+                    Sigeonssenpexia is partitioned into Goonland and Sentexland.
+                </td>
+            </tr>
+
+            <tr>
+                <td>14 June 2022</td>
+                <td>
+                    The Goonkrieg begins.
+                </td>
+            </tr>
+
+            <tr>
+                <td>2023</td>
+                <td>
+                    Battle of Rooftop 67.
+                </td>
+            </tr>
+
+            <tr>
+                <td>2024</td>
+                <td>
+                    Battle of Goon Central. The first major Mango 67 party is
+                    also held.
+                </td>
+            </tr>
+
+            <tr>
+                <td>2025</td>
+                <td>
+                    Goonkrieg ends with the Treaty of Mango 67.
+                </td>
+            </tr>
+
+            <tr>
+                <td>2026</td>
+                <td>
+                    Goonland and Sentexland remain independent states.
+                </td>
+            </tr>
+
+        </table>
+
+        <h2 id="references">References</h2>
+
+        <div class="references">
+
+            <ol>
+
+                <li>
+                    <em>The Goonland Gazette</em>.
+                    "The History of Sigeonssenpexia."
+                </li>
+
+                <li>
+                    <em>Sentex Historical Review</em>.
+                    "The Partition of 2022."
+                </li>
+
+                <li>
+                    <em>Mango Historical Society</em>.
+                    "The 67 Mango Dispute."
+                </li>
+
+                <li>
+                    <em>Goonland Military Archives</em>.
+                    "The Goonkrieg, 2022–2025."
+                </li>
+
+                <li>
+                    <em>Goonland Social Archives</em>.
+                    "The Rise of Sigeon Pex."
+                </li>
+
+                <li>
+                    <em>Mango Monthly</em>.
+                    "The Origins of Mango 67."
+                </li>
+
+            </ol>
+
+        </div>
+
+        <div class="categories">
+            <strong>Categories:</strong>
+            <a href="#">Goonland</a> ·
+            <a href="#">Sentexland</a> ·
+            <a href="#">Sigeonssenpexia</a> ·
+            <a href="#">Goonkrieg</a> ·
+            <a href="#">Sigeons</a> ·
+            <a href="#">Sennises</a> ·
+            <a href="#">Pexes</a> ·
+            <a href="#">Mango 67</a>
+        </div>
+
+        <footer class="footer">
+
+            This page is part of the Goonland Wiki, the free encyclopedia
+            documenting the history, geography, politics, and culture of
+            Goonland and its neighboring states.
+
+            <br><br>
+
+            Last edited: 14 August 2026
+
+        </footer>
+
+    </div>
 
 </main>
 
 </body>
 </html>
+```
